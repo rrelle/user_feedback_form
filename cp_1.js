@@ -84,4 +84,9 @@ form.addEventListener('submit', function(event) {
         commentCount.textContent = 'Comment count: 0';
     }
 });
+//event bubbling for feedback entries
+form.addEventListener('input', function(event) {
+    console.log(`Input event from ${event.target.id}`);
+});
+
 
