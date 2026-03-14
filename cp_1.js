@@ -23,4 +23,27 @@ function hideTooltip(field) {
     if (tooltip && tooltip.classList.contains('tooltip')) {
         tooltip.remove();
     }
-    
+    //Mouseover event for name
+nameInput.addEventListener('mouseover', function() {
+    showTooltip(nameInput, 'Please enter your full name');
+});
+//Mouseout event for name
+nameInput.addEventListener('mouseout', function() {
+    hideTooltip(nameInput);
+});
+//Mouseover event for email
+emailInput.addEventListener('mouseover', function() {
+    showTooltip(emailInput, 'Please enter a valid email address');
+});
+//Mouseout event for email
+emailInput.addEventListener('mouseout', function() {
+    hideTooltip(emailInput);
+});
+//Mouseover event for comments
+commentsInput.addEventListener('mouseover', function() {
+    showTooltip(commentsInput, 'Please provide your feedback');
+});
+//Mouseout event for comments
+commentsInput.addEventListener('mouseout', function() {
+    hideTooltip(commentsInput);
+});     
