@@ -20,7 +20,7 @@ function showTooltip(field, message) {
 }
 function hideTooltip(field) {
     let tooltip = field.nextElementSibling;
-    if (tooltip && tooltip.classList.contains('tooltip')) {
+    if (tooltip && tooltip.classList.contains('tooltip')) 
         tooltip.remove();
     }
     //Mouseover event for name
@@ -46,4 +46,42 @@ commentsInput.addEventListener('mouseover', function() {
 //Mouseout event for comments
 commentsInput.addEventListener('mouseout', function() {
     hideTooltip(commentsInput);
-});     
+});
+//Submit event for form
+form.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const Olderror = document.querySelectorAll('.error');
+    Olderror.forEach(error => error.remove());
+    Let is valid = true;
+    if (nameInput.value.trim() === '') {
+        const error = document.createElement('div');
+        error.classList.add('error');
+        error.textContent = 'Please enter your name';
+        nameInput.parentNode.insertBefore(error, nameInput.nextSibling);
+        is valid = false;
+    }
+    if (emailInput.value.trim() === '') {
+        const error = document.createElement('div');
+        error.classList.add('error');   
+        error.textContent = 'Please enter your email';
+        emailInput.parentNode.insertBefore(error, emailInput.nextSibling);
+        is valid = false;
+    }
+    if (commentsInput.value.trim() === '') {
+        const error = document.createElement('div');
+        error.classList.add('error');   
+        error.textContent = 'Please enter your comments';
+        commentsInput.parentNode.insertBefore(error, commentsInput.nextSibling);
+        is valid = false;
+    }
+    if (is valid) {
+        const entry = document.createElement('div');
+        entry.classList.add('feedback-entry');
+        entry.innerHTML = `<strong>${nameInput.value}</strong> (${emailInput.value}): <p>${commentsInput.value}</p>`;
+        feedbackDisplay.appendChild(entry);
+        form.reset();
+        commentCount.textContent = 'Comment count: 0';
+    }
+});
+
