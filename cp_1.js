@@ -53,29 +53,29 @@ form.addEventListener('submit', function(event) {
 
     const Olderror = document.querySelectorAll('.error');
     Olderror.forEach(error => error.remove());
-    Let is valid = true;
+    let isValid = true;
     if (nameInput.value.trim() === '') {
         const error = document.createElement('div');
         error.classList.add('error');
         error.textContent = 'Please enter your name';
         nameInput.parentNode.insertBefore(error, nameInput.nextSibling);
-        is valid = false;
+        isValid = false;
     }
     if (emailInput.value.trim() === '') {
         const error = document.createElement('div');
         error.classList.add('error');   
         error.textContent = 'Please enter your email';
         emailInput.parentNode.insertBefore(error, emailInput.nextSibling);
-        is valid = false;
+        isValid = false;
     }
     if (commentsInput.value.trim() === '') {
         const error = document.createElement('div');
         error.classList.add('error');   
         error.textContent = 'Please enter your comments';
         commentsInput.parentNode.insertBefore(error, commentsInput.nextSibling);
-        is valid = false;
+        isValid = false;
     }
-    if (is valid) {
+    if (isValid) {
         const entry = document.createElement('div');
         entry.classList.add('feedback-entry');
         entry.innerHTML = `<strong>${nameInput.value}</strong> (${emailInput.value}): <p>${commentsInput.value}</p>`;
